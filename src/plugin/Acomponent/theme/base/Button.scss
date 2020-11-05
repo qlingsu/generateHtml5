@@ -1,0 +1,20 @@
+@mixin a-common-button {
+    height: 40px;
+    max-height: 100%;
+    color:#FFFFFF;
+    background-color: #2785e7;
+    line-height: initial;
+    text-align: center;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+  }
+  .a-round-button {
+    @include a-common-button;
+    border-radius: 20px;
+  }
+  .a-square-button {
+    @include a-common-button;
+    border-radius: 5px;
+  }

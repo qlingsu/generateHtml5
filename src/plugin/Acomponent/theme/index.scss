@@ -1,0 +1,166 @@
+@import "./common.scss";
+
+@import "./base/Bar.scss";
+@import "./base/Body.scss";
+@import "./base/Button.scss";
+@import "./base/Footer.scss";
+@import "./base/Input.scss";
+@import "./base/Message.scss";
+@import "./base/Mine.scss";
+@import "./base/SelectMultiLine.scss";
+@import "./base/Tab.scss";
+@import "./base/Title.scss";
+
+
+@import "./extends/ArrowModel.scss";
+@import "./extends/AuditInfo.scss";
+@import "./extends/TotalCard.scss";
+
+.title_h_mar_t {
+  // margin-top: #{$titleHeight+'px'};
+}
+
+.top_bg {
+  display: flex;
+  width: 100%;
+  background: url("./img/top_bg.png") no-repeat 0 0;
+  background-size: 100% auto;
+  padding-top: #{$titleHeight+'px'};
+}
+
+.chart_title {
+  width: 100%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.chart_box {
+  width: 100%;
+}
+
+.more_link {
+  color: #909090;
+}
+
+.select_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.button_box {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+  margin-top: 13px;
+}
+
+.button_li {
+  font-size: 14px;
+  min-width: 20vw;
+  width: auto;
+  height: 60px !important;
+  color: #45455a;
+  box-shadow: 0 0 8px 0 rgba(85, 135, 183, 0.21);
+}
+
+.active {
+  background-color: #2c99ff !important;
+  color: #fff;
+}
+
+.number_color {
+  color: #2c99ff;
+}
+
+.active .number_color {
+  color: #fff;
+}
+
+.buttonList {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.buttonList > li {
+  float: left;
+  width: calc(50% - 5px);
+  text-align: center;
+  color: #02143b;
+  border-radius: 4px;
+  margin: 5px 10px 5px 0;
+  background: url(./img/nav_bg.png) no-repeat 0 0;
+  background-size: 100%;
+  box-sizing: border-box;
+  padding: 3% 0;
+}
+
+.buttonList > li:nth-child(2n) {
+  margin-right: 0;
+}
+
+.buttonList > li > span {
+  display: inline-block;
+  background-size: 100%;
+  vertical-align: middle;
+}
+
+.buttonList > li::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 5%;
+}
+
+.buttonList > li.icon1::before {
+  background-image: url("./img/nav_ico01.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.buttonList > li.icon2::before {
+  background-image: url("./img/nav_ico02.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.buttonList > li.icon3::before {
+  background-image: url("./img/nav_ico03.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.buttonList > li.icon4::before {
+  background-image: url("./img/nav_ico04.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.buttonList > li.icon5::before {
+  background-image: url("./img/nav_ico05.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.buttonList > li.icon6::before {
+  background-image: url("./img/nav_ico06.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.audit_box{
+  position:relative;
+  width:100%;
+  min-height: 220px;
+  height: auto;
+  background: url("./img/sp_xx_bg.png") no-repeat 0 0;
+  background-size: 100%;
+  // margin-top: #{$titleHeight+'px'};
+}
