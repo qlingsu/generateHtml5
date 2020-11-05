@@ -4,10 +4,13 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
+
 import Vant from 'vant';
 Vue.use(Vant);
+
 import Acomponent from '@/plugin/Acomponent';
 Vue.use(Acomponent);
+
 import ChartsModelList from "@/plugin/ChartsModel";
 Vue.use(ChartsModelList);
 

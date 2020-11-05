@@ -1,5 +1,5 @@
 <style scoped>
-.grid-frame-b {
+.widget-frame-db {
   width: 100%;
   background-color: #e1e1e1;
   overflow: hidden;
@@ -7,12 +7,12 @@
 </style>
 <template>
   <!--这是一个框架-->
-  <div class="grid-frame-b">
+  <div class="widget-frame-db">
     <div>模板B</div>
-    <grid-div
-      :item="gridArr[0]"
+    <widget-div
+      :item="widgetArr[0]"
       style="border: none; min-height: 40px"
-    ></grid-div>
+    ></widget-div>
     <div>标题1</div>
     <div style="display: flex; justify-content: space-around; height: 300px">
       <div
@@ -23,25 +23,25 @@
           flex-direction: column;
         "
       >
-        <grid-div :item="gridArr[1]" style="margin: 0"></grid-div>
-        <grid-div :item="gridArr[2]" style="margin: 0"></grid-div>
+        <widget-div :item="widgetArr[1]" style="margin: 0"></widget-div>
+        <widget-div :item="widgetArr[2]" style="margin: 0"></widget-div>
       </div>
       <div style="width: 45%">
-        <grid-div :item="gridArr[3]" style="height: 100%; margin: 0"></grid-div>
+        <widget-div :item="widgetArr[3]" style="height: 100%; margin: 0"></widget-div>
       </div>
     </div>
 
     <div>标题2</div>
 
     <div>图片</div>
-    <grid-div :item="gridArr[4]"></grid-div>
+    <widget-div :item="widgetArr[4]"></widget-div>
   </div>
 </template>
 <script>
 export default {
-  name: "grid-frame-b",
+  name: "widget-frame-db",
   props: {
-    gridArr: {
+    widgetArr: {
       type: Array,
       default: function () {
         return [];

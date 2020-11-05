@@ -5,7 +5,7 @@ module.exports = {
     lintOnSave: false,
     devServer: {
         open: true,
-        port: 8088
+        port: appConfig.port
     },
     configureWebpack: {
         module: {

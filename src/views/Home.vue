@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="group-source-content" v-show="sourceList[0].show">
-        <charts-model-list :components="frameArr"></charts-model-list>
+        <element-list :components="frameArr"></element-list>
       </div>
       <div class="group-source-title">
         <div>图表组件库，拖拽可操作</div>
@@ -101,7 +101,7 @@
         </div>
       </div>
       <div class="group-source-content" v-show="sourceList[1].show">
-        <charts-model-list :components="chartsArr"></charts-model-list>
+        <element-list :components="chartsArr"></element-list>
       </div>
 
       <div class="group-source-title">
@@ -122,20 +122,20 @@
         </div>
       </div>
       <div class="group-source-content" v-show="sourceList[2].show">
-        <charts-model-list :components="elementArr"></charts-model-list>
+        <element-list :components="elementArr"></element-list>
       </div>
     </div>
 
     <!-- 生成结果用 -->
     <div class="target-list">
       <a-mobile>
-        <charts-model-list :components="resultArr"></charts-model-list>
+        <element-list :components="resultArr"></element-list>
       </a-mobile>
     </div>
 
     <!-- 模拟移动model -->
     <div class="chart-move-div" v-show="mousedownState">
-      <charts-model-list :components="moveArr"></charts-model-list>
+      <element-list :components="moveArr"></element-list>
     </div>
   </div>
 </template>
@@ -281,9 +281,9 @@ export default {
     deleteFromResult(id) {
       let self = this;
       self.resultArr.forEach((frame, i) => {
-        frame.props.gridArr.forEach((gridDiv, j) => {
-          if (gridDiv.id == id) {
-            gridDiv.components = [];
+        frame.props.widgetArr.forEach((widgetDiv, j) => {
+          if (widgetDiv.id == id) {
+            widgetDiv.components = [];
           }
         });
       });
@@ -309,26 +309,26 @@ export default {
     inFrameReturnId(x, y) {
       let self = this;
       let targetDiv = document.getElementsByClassName(mobile)[0];
-      let gridDivs = targetDiv.getElementsByClassName("grid-div");
+      let widgetDivs = targetDiv.getElementsByClassName("widget-div");
       let id = "";
-      Array.prototype.forEach.call(gridDivs, function (gridDiv) {
-        let rect = gridDiv.getBoundingClientRect();
-        gridDiv.style.border = "none";
-        // gridDiv.style.backgroundColor = "#FFFFFF";
+      Array.prototype.forEach.call(widgetDivs, function (widgetDiv) {
+        let rect = widgetDiv.getBoundingClientRect();
+        widgetDiv.style.border = "none";
+        // widgetDiv.style.backgroundColor = "#FFFFFF";
         if (
           x > rect.left &&
           x <= rect.left + rect.width &&
           y > rect.top &&
           y <= rect.top + rect.height
         ) {
-          id = gridDiv.id; //当前鼠标落点的id
+          id = widgetDiv.id; //当前鼠标落点的id
           if (
             self.mouseMoveAction &&
             (self.source == "chart" || self.source == "element")
           ) {
             //如果鼠标在移动状态
-            gridDiv.style.border = "3px dotted #50a0f9";
-            // gridDiv.style.backgroundColor = "#50a0f9";
+            widgetDiv.style.border = "3px dotted #50a0f9";
+            // widgetDiv.style.backgroundColor = "#50a0f9";
           }
         }
       });
@@ -385,9 +385,9 @@ export default {
 
       if (insertId && self.moveArr && self.moveArr.length == 1) {
         self.resultArr.forEach((frame, i) => {
-          frame.props.gridArr.forEach((gridDiv, j) => {
-            if (gridDiv.id == insertId) {
-              gridDiv.components = [tempVNode];
+          frame.props.widgetArr.forEach((widgetDiv, j) => {
+            if (widgetDiv.id == insertId) {
+              widgetDiv.components = [tempVNode];
             }
           });
         });

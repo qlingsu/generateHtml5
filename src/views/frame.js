@@ -1,7 +1,7 @@
 var frames = [{
-        name: "grid-frame-b",
+        name: "widget-frame-db",
         props: {
-            gridArr: [{
+            widgetArr: [{
                     id: "a0", //id一定要设置，否则不起作用
                     components: [],
                 },
@@ -25,9 +25,9 @@ var frames = [{
         },
     },
     {
-        name: "grid-frame-a",
+        name: "widget-frame-da",
         props: {
-            gridArr: [{
+            widgetArr: [{
                     id: "a0", //id一定要设置，否则不起作用
                     components: [],
                 },
@@ -51,9 +51,9 @@ var frames = [{
         },
     },
     // {
-    //     name: "grid-frame-c",
+    //     name: "widget-frame-dc",
     //     props: {
-    //         gridArr: [{
+    //         widgetArr: [{
     //                 id: "a0", //id一定要设置，否则不起作用
     //                 components: [],
     //             },
@@ -81,9 +81,9 @@ var frames = [{
     //     },
     // },
     {
-        name: "grid-frame-d",
+        name: "widget-frame-dd",
         props: {
-            gridArr: [{
+            widgetArr: [{
                     id: "a0", //id一定要设置，否则不起作用
                     components: [],
                 },

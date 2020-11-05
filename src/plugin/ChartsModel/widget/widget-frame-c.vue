@@ -1,5 +1,5 @@
 <style scoped>
-.grid-frame-c {
+.widget-frame-dc {
   width: 100%;
   background-color: #544848;
   /* background-image: url("../assets/top_bg.png"); */
@@ -9,24 +9,24 @@
 </style>
 <template>
   <!--这是一个框架-->
-  <div class="grid-frame-c">
+  <div class="widget-frame-dc">
     <div>模板C</div>
     <div>标题1</div>
-    <grid-div :item="gridArr[0]"></grid-div>
+    <widget-div :item="widgetArr[0]"></widget-div>
     <div>标题2</div>
-    <grid-div :item="gridArr[1]"></grid-div>
+    <widget-div :item="widgetArr[1]"></widget-div>
     <div>图片</div>
-    <grid-div :item="gridArr[2]"></grid-div>
-    <grid-div :item="gridArr[3]"></grid-div>
-    <grid-div :item="gridArr[4]"></grid-div>
-    <grid-div :item="gridArr[5]"></grid-div>
+    <widget-div :item="widgetArr[2]"></widget-div>
+    <widget-div :item="widgetArr[3]"></widget-div>
+    <widget-div :item="widgetArr[4]"></widget-div>
+    <widget-div :item="widgetArr[5]"></widget-div>
   </div>
 </template>
 <script>
 export default {
-  name: "grid-frame-c",
+  name: "widget-frame-dc",
   props: {
-    gridArr: {
+    widgetArr: {
       type: Array,
       default: function () {
         return [];

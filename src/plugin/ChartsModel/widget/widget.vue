@@ -1,5 +1,5 @@
 <style scoped>
-.grid-div {
+.widget-div {
   width: 90%;
   min-height: 140px;
   background-color: #ffffff;
@@ -11,13 +11,13 @@
 </style>
 <template>
   <!--框架的输入框，用于装图表组件-->
-  <div class="grid-div" :id="item.id">
-    <charts-model-list :components="item.components"></charts-model-list>
+  <div class="widget-div" :id="item.id">
+    <element-list :components="item.components"></element-list>
   </div>
 </template>
 <script>
 export default {
-  name: "grid-div",
+  name: "widget-div",
   props: {
     item: {
       type: Object,

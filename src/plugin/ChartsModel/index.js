@@ -13,9 +13,9 @@ ChartsModel.install = function(Vue, options) {
             Vue.component(component.name, component);
         })
         //框架组件
-    var getGridComponents = require.context("./grid", true, /\.vue$/);
-    getGridComponents.keys().forEach((path) => {
-            let component = getGridComponents(path).default;
+    var getWidgetComponents = require.context("./widget", true, /\.vue$/);
+    getWidgetComponents.keys().forEach((path) => {
+            let component = getWidgetComponents(path).default;
             Vue.component(component.name, component);
         })
         //通用组件
@@ -30,7 +30,7 @@ ChartsModel.install = function(Vue, options) {
         }
     })
 
-    Vue.component('charts-model-list', {
+    Vue.component('element-list', {
         functional: true,
         props: {
             componentArr: {

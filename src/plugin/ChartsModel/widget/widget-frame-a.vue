@@ -1,5 +1,5 @@
 <style scoped>
-.grid-frame-a {
+.widget-frame-da {
   width: 100%;
   background-color: #eceff6;
   overflow: hidden;
@@ -10,20 +10,20 @@
 </style>
 <template>
   <!--这是一个框架-->
-  <div class="grid-frame-a">
+  <div class="widget-frame-da">
     <div style="height:100px;">模板A</div>
-    <grid-div
+    <widget-div
       :item="item"
-      v-for="(item, index) in gridArr"
+      v-for="(item, index) in widgetArr"
       :key="index"
-    ></grid-div>
+    ></widget-div>
   </div>
 </template>
 <script>
 export default {
-  name: "grid-frame-a",
+  name: "widget-frame-da",
   props: {
-    gridArr: {
+    widgetArr: {
       type: Array,
       default: function () {
         return [];
