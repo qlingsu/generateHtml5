@@ -28,7 +28,7 @@ export default {
             {
               name: "div",
               style: {
-                // color: "#e1e1e1"
+                color: "#e1e1e1"
               },
               slot: "拖动到此处",
             },

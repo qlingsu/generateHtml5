@@ -1,5 +1,5 @@
 <style scoped>
-.widget-frame-dd {
+.widget-frame-d {
   width: 100%;
   background-color: gray;
   overflow: hidden;
@@ -7,7 +7,7 @@
 </style>
 <template>
   <!--这是一个框架-->
-  <div class="widget-frame-dd">
+  <div class="widget-frame-d">
     <div>模板D</div>
     <div>输入框</div>
     <div style="display: flex;">
@@ -26,7 +26,7 @@
 </template>
 <script>
 export default {
-  name: "widget-frame-dd",
+  name: "widget-frame-d",
   props: {
     widgetArr: {
       type: Array,

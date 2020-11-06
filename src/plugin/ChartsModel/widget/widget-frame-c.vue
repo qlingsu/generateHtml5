@@ -1,5 +1,5 @@
 <style scoped>
-.widget-frame-dc {
+.widget-frame-c {
   width: 100%;
   background-color: #544848;
   /* background-image: url("../assets/top_bg.png"); */
@@ -9,7 +9,7 @@
 </style>
 <template>
   <!--这是一个框架-->
-  <div class="widget-frame-dc">
+  <div class="widget-frame-c">
     <div>模板C</div>
     <div>标题1</div>
     <widget-div :item="widgetArr[0]"></widget-div>
@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-  name: "widget-frame-dc",
+  name: "widget-frame-c",
   props: {
     widgetArr: {
       type: Array,

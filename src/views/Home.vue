@@ -402,13 +402,15 @@ export default {
         data["employment001_body_30"].length > 0 &&
         data["employment001_body_40"].length > 0
       ) {
-        var frames = require("./frame.js").default;
+        var frames = require("@/plugin/ChartsModel/data/frame.js").default;
         self.frameArr = self.setNativeOn(frames, "frame");
 
-        var sourceCharts = require("./charts.js").getData(data);
+        var sourceCharts = require("@/plugin/ChartsModel/data/charts.js").getData(
+          data
+        );
         self.chartsArr = self.setNativeOn(sourceCharts, "chart");
 
-        var elementArr = require("./element").default;
+        var elementArr = require("@/plugin/ChartsModel/data/element").default;
         self.elementArr = self.setNativeOn(elementArr, "element");
       } else {
         // Toast.fail("没有获取到数据");

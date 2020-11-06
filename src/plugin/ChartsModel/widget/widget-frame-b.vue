@@ -1,5 +1,5 @@
 <style scoped>
-.widget-frame-db {
+.widget-frame-b {
   width: 100%;
   background-color: #e1e1e1;
   overflow: hidden;
@@ -7,7 +7,7 @@
 </style>
 <template>
   <!--这是一个框架-->
-  <div class="widget-frame-db">
+  <div class="widget-frame-b">
     <div>模板B</div>
     <widget-div
       :item="widgetArr[0]"
@@ -39,7 +39,7 @@
 </template>
 <script>
 export default {
-  name: "widget-frame-db",
+  name: "widget-frame-b",
   props: {
     widgetArr: {
       type: Array,

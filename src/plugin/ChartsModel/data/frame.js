@@ -1,5 +1,5 @@
 var frames = [{
-        name: "widget-frame-db",
+        name: "widget-frame-b",
         props: {
             widgetArr: [{
                     id: "a0", //id一定要设置，否则不起作用
@@ -25,7 +25,7 @@ var frames = [{
         },
     },
     {
-        name: "widget-frame-da",
+        name: "widget-frame-a",
         props: {
             widgetArr: [{
                     id: "a0", //id一定要设置，否则不起作用
@@ -51,7 +51,7 @@ var frames = [{
         },
     },
     // {
-    //     name: "widget-frame-dc",
+    //     name: "widget-frame-c",
     //     props: {
     //         widgetArr: [{
     //                 id: "a0", //id一定要设置，否则不起作用
@@ -81,7 +81,7 @@ var frames = [{
     //     },
     // },
     {
-        name: "widget-frame-dd",
+        name: "widget-frame-d",
         props: {
             widgetArr: [{
                     id: "a0", //id一定要设置，否则不起作用
