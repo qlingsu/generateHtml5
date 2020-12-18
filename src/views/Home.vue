@@ -46,7 +46,7 @@
 }
 .target-list {
   display: inline-block;
-  width: calc(100% - 375px);
+  width: calc(100% - 575px);
   height: 800px;
 
   /* Chrome all / Safari all /opera15+*/
@@ -128,9 +128,26 @@
 
     <!-- 生成结果用 -->
     <div class="target-list">
+      <a-ruler :long="rulerWidth"></a-ruler>
+      <a-ruler :direction="'vertical'" :long="800"></a-ruler>
+      <a-ruler
+        :direction="'vertical'"
+        :defineScalePos="'right'"
+        :long="800"
+      ></a-ruler>
+      <a-ruler
+        :long="rulerWidth"
+        :defineScalePos="'bottom'"
+        style="position: absolute; bottom: 0"
+      ></a-ruler>
       <a-mobile>
         <element-list :components="resultArr"></element-list>
       </a-mobile>
+    </div>
+
+    <div style="width: 200px; border-left: 1px solid #e1e1e1">
+      <a-button @click="save">保存</a-button>
+      <a-upload @click="open">读取</a-upload>
     </div>
 
     <!-- 模拟移动model -->
@@ -142,6 +159,7 @@
 <script>
 import Vue from "vue";
 import Utils from "@/plugin/ChartsModel/utils/utils.js";
+import FileSaver from "file-saver";
 
 window.clientWidth = 375; //设定宽度
 
@@ -180,6 +198,8 @@ export default {
 
       resultArr: [], //结果库
       moveArr: [],
+
+      rulerWidth: 0,
     };
   },
   mounted() {
@@ -190,6 +210,13 @@ export default {
 
     window.onmousemove = self.mousemoveEvent;
     window.onmouseup = self.mouseupEvent;
+
+    window.onresize = function () {
+      let targetDiv = document.getElementsByClassName("target-list")[0];
+      let targetRectObj = targetDiv.getBoundingClientRect();
+      self.rulerWidth = targetRectObj.width;
+    };
+    window.onresize();
   },
   methods: {
     switchSource(i, showFlag) {
@@ -440,6 +467,17 @@ export default {
         });
       return arr;
     },
+    save() {
+      let self = this;
+      let result = JSON.stringify(self.resultArr);
+      console.info(result);
+      var blob = new Blob(new String(result), { type: "text/plain;charset=utf-8" });
+      FileSaver.saveAs(blob, new Date().getTime());
+    },
+    open(){
+      let self = this;
+
+    }
   },
 };
 </script>
