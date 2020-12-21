@@ -135,14 +135,15 @@
         :defineScalePos="'right'"
         :long="800"
       ></a-ruler>
-      <a-ruler
-        :long="rulerWidth"
-        :defineScalePos="'bottom'"
-        style="position: absolute; bottom: 0"
-      ></a-ruler>
+
       <a-mobile>
         <element-list :components="resultArr"></element-list>
       </a-mobile>
+
+      <a-ruler
+        :long="rulerWidth"
+        :defineScalePos="'bottom'"
+      ></a-ruler>
     </div>
 
     <div style="width: 200px; border-left: 1px solid #e1e1e1">

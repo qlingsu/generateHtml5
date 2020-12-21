@@ -6,7 +6,7 @@ $rulerMM: 5px;
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 10px;
+  height: 15px;
   flex-wrap: nowrap;
   @mixin kedu {
     border-left: 1px solid $rulerColor;
@@ -35,7 +35,7 @@ $rulerMM: 5px;
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 10px;
+  width: 15px;
   flex-wrap: nowrap;
 
   @mixin kedu {
