@@ -1,16 +1,22 @@
-<style scoped>
+<style lang="scss" scoped>
+$sourceTitleHeight: 40;
+$targetListHeight: 800;
+$resultWidth: 375;
+
 .chart-move-div {
   opacity: 0.85;
   border: 2px solid #e1e1e1;
   background-color: #ffffff;
   position: fixed;
-  width: 375px;
+  width: $resultWidth + px;
 }
 .group-source-list {
-  width: 375px;
+  width: $resultWidth + px;
   border-right: 2px solid #e1e1e1;
-  height: 800px;
+  box-shadow: 3px 0px 10px 10px #d0def5;
+  height: $targetListHeight + px;
   overflow-y: auto;
+
   display: inline-block;
   /* Chrome all / Safari all /opera15+*/
   -webkit-user-select: none;
@@ -22,18 +28,21 @@
   user-select: none;
 }
 .group-source-title {
-  height: 30px;
-  line-height: 30px;
+  height: ($sourceTitleHeight - 1) + px;
+  line-height: ($sourceTitleHeight - 1) + px;
   padding-left: 10px;
   padding-right: 10px;
   color: #ffffff;
-  background-image: linear-gradient(to bottom, #2b2f3a, #304156);
+  /* background-image: linear-gradient(to bottom, #2b2f3a, #304156); */
+  background-color: #5589e3;
+  border-bottom: 1px solid #ffffff;
   display: flex;
   justify-content: space-between;
+  
 }
 .group-source-content {
   overflow-y: auto;
-  height: 710px;
+  height: $targetListHeight - 3 * $sourceTitleHeight + px;
 }
 .group-source-content::-webkit-scrollbar {
   width: 0 !important;
@@ -46,8 +55,9 @@
 }
 .target-list {
   display: inline-block;
-  width: calc(100% - 575px);
-  height: 800px;
+  width: calc(100% - #{$resultWidth+px});
+  height: $targetListHeight + px;
+  position: relative;
 
   /* Chrome all / Safari all /opera15+*/
   -webkit-user-select: none;
@@ -58,102 +68,144 @@
   /* 通用 */
   user-select: none;
 }
+.result-div {
+  width: $resultWidth + px;
+  height: 667px;
+  margin: auto;
+  box-shadow: 1px 2px 16px 5px #d0def5;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  overflow-y: auto;
+}
+.result-div::-webkit-scrollbar {
+  width: 0 !important;
+}
+.result-div {
+  -ms-overflow-style: none;
+}
+.result-div {
+  overflow: -moz-scrollbars-none;
+}
+
+.group-header {
+  background-color: #1e4fa3;
+  display: flex;
+  height: 60px;
+  line-height: 60px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding-left: 20px;
+}
 </style>
 <template>
-  <div style="overflow-y: auto; height: 100vh; display: flex">
-    <!-- 全部图表样例 -->
-    <div class="group-source-list">
-      <div class="group-source-title">
-        <div>框架库，拖拽可操作</div>
-        <div
-          @click="switchSource(0, true)"
-          v-show="!sourceList[0].show"
-          style="cursor: pointer"
-        >
-          [展开]
-        </div>
-        <div
-          @click="switchSource(0, false)"
-          v-show="sourceList[0].show"
-          style="cursor: pointer"
-        >
-          [折叠]
-        </div>
-      </div>
-      <div class="group-source-content" v-show="sourceList[0].show">
-        <element-list :components="frameArr"></element-list>
-      </div>
-      <div class="group-source-title">
-        <div>图表组件库，拖拽可操作</div>
-        <div
-          @click="switchSource(1, true)"
-          v-show="!sourceList[1].show"
-          style="cursor: pointer"
-        >
-          [展开]
-        </div>
-        <div
-          @click="switchSource(1, false)"
-          v-show="sourceList[1].show"
-          style="cursor: pointer"
-        >
-          [折叠]
-        </div>
-      </div>
-      <div class="group-source-content" v-show="sourceList[1].show">
-        <element-list :components="chartsArr"></element-list>
-      </div>
-
-      <div class="group-source-title">
-        <div>普通组件库，拖拽可操作</div>
-        <div
-          @click="switchSource(2, true)"
-          v-show="!sourceList[2].show"
-          style="cursor: pointer"
-        >
-          [展开]
-        </div>
-        <div
-          @click="switchSource(2, false)"
-          v-show="sourceList[2].show"
-          style="cursor: pointer"
-        >
-          [折叠]
-        </div>
-      </div>
-      <div class="group-source-content" v-show="sourceList[2].show">
-        <element-list :components="elementArr"></element-list>
-      </div>
+  <div>
+    <div class="group-header">
+      <div style="">html 生成器</div>
     </div>
+    <div style="overflow-y: auto; height: calc(100vh - 60px); display: flex">
+      <!-- 全部图表样例 -->
+      <div class="group-source-list">
+        <div class="group-source-title">
+          <div>框架库，拖拽可操作</div>
+          <div
+            @click="switchSource(0, true)"
+            v-show="!sourceList[0].show"
+            style="cursor: pointer"
+          >
+            [展开]
+          </div>
+          <div
+            @click="switchSource(0, false)"
+            v-show="sourceList[0].show"
+            style="cursor: pointer"
+          >
+            [折叠]
+          </div>
+        </div>
+        <div class="group-source-content" v-show="sourceList[0].show">
+          <element-list :components="frameArr"></element-list>
+        </div>
+        <div class="group-source-title">
+          <div>图表组件库，拖拽可操作</div>
+          <div
+            @click="switchSource(1, true)"
+            v-show="!sourceList[1].show"
+            style="cursor: pointer"
+          >
+            [展开]
+          </div>
+          <div
+            @click="switchSource(1, false)"
+            v-show="sourceList[1].show"
+            style="cursor: pointer"
+          >
+            [折叠]
+          </div>
+        </div>
+        <div class="group-source-content" v-show="sourceList[1].show">
+          <element-list :components="chartsArr"></element-list>
+        </div>
 
-    <!-- 生成结果用 -->
-    <div class="target-list">
-      <a-ruler :long="rulerWidth"></a-ruler>
-      <a-ruler :direction="'vertical'" :long="800"></a-ruler>
-      <a-ruler
-        :direction="'vertical'"
-        :defineScalePos="'right'"
-        :long="800"
-      ></a-ruler>
+        <div class="group-source-title">
+          <div>普通组件库，拖拽可操作</div>
+          <div
+            @click="switchSource(2, true)"
+            v-show="!sourceList[2].show"
+            style="cursor: pointer"
+          >
+            [展开]
+          </div>
+          <div
+            @click="switchSource(2, false)"
+            v-show="sourceList[2].show"
+            style="cursor: pointer"
+          >
+            [折叠]
+          </div>
+        </div>
+        <div class="group-source-content" v-show="sourceList[2].show">
+          <element-list :components="elementArr"></element-list>
+        </div>
+      </div>
 
-      <a-mobile>
+      <!-- 生成结果用 -->
+      <div class="target-list">
+        <a-ruler-with-num
+          :long="rulerWidth"
+          style="position: absolute; top: 0"
+        ></a-ruler-with-num>
+        <a-ruler-with-num
+          :direction="'vertical'"
+          :long="rulerLong"
+        ></a-ruler-with-num>
+        <a-ruler-with-num
+          :direction="'vertical'"
+          :defineScalePos="'right'"
+          :long="rulerLong"
+        ></a-ruler-with-num>
+
+        <!-- <a-mobile>
         <element-list :components="resultArr"></element-list>
-      </a-mobile>
+      </a-mobile> -->
+        <div class="result-div">
+          <element-list :components="resultArr"></element-list>
+        </div>
 
-      <a-ruler
-        :long="rulerWidth"
-        :defineScalePos="'bottom'"
-      ></a-ruler>
-    </div>
+        <a-ruler-with-num
+          :long="rulerWidth"
+          style="position: absolute; bottom: 0"
+          :defineScalePos="'bottom'"
+        ></a-ruler-with-num>
+      </div>
+      <div>
+        <!-- <a-button @click="save">保存</a-button> -->
+      </div>
 
-    <div style="width: 200px; border-left: 1px solid #e1e1e1">
-      <a-button @click="save">保存</a-button>
-      <a-upload @click="open">读取</a-upload>
-    </div>
-
-    <!-- 模拟移动model -->
-    <div class="chart-move-div" v-show="mousedownState">
-      <element-list :components="moveArr"></element-list>
+      <!-- 模拟移动model -->
+      <div class="chart-move-div" v-show="mousedownState">
+        <element-list :components="moveArr"></element-list>
+      </div>
     </div>
   </div>
 </template>
@@ -164,7 +216,7 @@ import FileSaver from "file-saver";
 
 window.clientWidth = 375; //设定宽度
 
-var mobile = "a-mobile-content";
+var mobile = "result-div";
 var chartMoveDiv = "chart-move-div";
 var chartCloseBtn = "close-btn_"; //关闭按钮
 
@@ -201,6 +253,7 @@ export default {
       moveArr: [],
 
       rulerWidth: 0,
+      rulerLong:800
     };
   },
   mounted() {
